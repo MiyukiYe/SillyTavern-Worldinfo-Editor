@@ -6,7 +6,7 @@
 
 ## ✨ 核心特性 (Key Features)
 
-* 🚀 **极致流畅的本地编辑**：纯本地原生 GUI 程序，彻底摆脱网页端渲染长文本时的卡顿噩梦。
+* 🚀 **极致流畅的本地编辑**：纯本地原生 GUI 程序，彻底摆脱网页端渲染长文本时的卡顿。
 * 🎨 **现代高颜值 UI**：采用 `customtkinter` 打造的纯正 Dark Mode（深色模式），护眼。
 <img width="863" height="584" alt="Snipaste_2026-02-22_20-59-28" src="https://github.com/user-attachments/assets/419774d1-9312-4c02-9ec1-cb185e1aa0fc" />
 
