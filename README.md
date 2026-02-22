@@ -2,12 +2,12 @@
 
 一款专为 SillyTavern（酒馆）跑团/聊天玩家打造的**轻量级、现代化、防丢护航**的本地世界书编辑器。
 
-当你编写了数十上百条、动辄几万字的庞大世界设定（如大型剧本杀、长篇企划）时，SillyTavern 网页端自带的编辑器往往会出现严重的输入卡顿和内存溢出。本项目正是为了彻底解决这一痛点而生——**告别浏览器卡顿，丝滑管理你的大部头设定集！**
+当世界书条目过多时，SillyTavern 网页端自带的编辑器往往会出现严重的输入卡顿和内存溢出。本项目正是为了彻底解决这一痛点而生——**告别浏览器卡顿，丝滑管理你的大部头设定集！**
 
 ## ✨ 核心特性 (Key Features)
 
 * 🚀 **极致流畅的本地编辑**：纯本地原生 GUI 程序，彻底摆脱网页端渲染长文本时的卡顿噩梦。
-* 🎨 **现代高颜值 UI**：采用 `customtkinter` 打造的纯正 Dark Mode（深色模式），自动唤醒 Windows 底层高 DPI 缩放，文字渲染如矢量般锐利，护眼且优雅。
+* 🎨 **现代高颜值 UI**：采用 `customtkinter` 打造的纯正 Dark Mode（深色模式），护眼。
 <img width="863" height="584" alt="Snipaste_2026-02-22_20-59-28" src="https://github.com/user-attachments/assets/419774d1-9312-4c02-9ec1-cb185e1aa0fc" />
 
 * 🔍 **全局搜索 & 高亮替换**：
@@ -34,7 +34,7 @@
 <img width="338" height="127" alt="Snipaste_2026-02-22_21-03-48" src="https://github.com/user-attachments/assets/43435169-49ca-43da-9018-aeffa646101b" />
 
 
-* 📁 **全生命周期管理**：支持从零**新建**空白世界书结构，也支持将不同分支结局的设定**另存为**新文件。
+* 📁 **全生命周期管理**：支持从零**新建**空白世界书结构，**另存为**新文件。
 <img width="1725" height="1159" alt="image" src="https://github.com/user-attachments/assets/041bce08-2d56-4a67-8c01-6bede8b8b955" />
 
 ## 📥 下载与使用 (How to Use)
