@@ -7,6 +7,7 @@
 ## ✨ 核心特性 (Key Features)
 
 * 🚀 **极致流畅的本地编辑**：纯本地原生 GUI 程序，彻底摆脱网页端渲染长文本时的卡顿。
+* 🚀 **网页端适配手机、平板**：HTML + JS + CSS，依旧告别卡顿。
 * 🎨 **现代高颜值 UI**：采用 `customtkinter` 打造的纯正 Dark Mode（深色模式），护眼。
 <img width="863" height="584" alt="Snipaste_2026-02-22_20-59-28" src="https://github.com/user-attachments/assets/419774d1-9312-4c02-9ec1-cb185e1aa0fc" />
 
@@ -41,7 +42,7 @@
 
 **普通用户（推荐）：**
 
-1. 前往本仓库的 [Releases 页面](https://github.com/MiyukiYe/SillyTavern-Worldbook-Editor/releases) 下载最新版本的 `.exe` 可执行文件。
+1. 前往本仓库的 [Releases 页面](https://github.com/MiyukiYe/SillyTavern-Worldbook-Editor/releases) 下载最新版本的 `.exe` 可执行文件或 `.html`。
 2. 无需安装任何环境，双击直接运行。
 3. 点击顶部导航栏的 `📂 打开`，选择你的 SillyTavern 世界书文件（`.json` 格式）即可开始丝滑编辑。
 4. 编辑完成后点击 `💾 保存`，即可直接在酒馆中生效。
@@ -89,7 +90,7 @@ pyinstaller --noconsole --onefile --hidden-import zhconv --collect-all customtki
 
 ## 📝 更新日志 (Changelog)
 
-**v9.0 (当前版本)**
+**本地端v9.0 (当前版本)**
 
 * 彻底重构 UI，引入 CustomTkinter 现代深色主题。
 * 增加 Windows 高 DPI 适配，解决文本模糊问题。
@@ -97,6 +98,10 @@ pyinstaller --noconsole --onefile --hidden-import zhconv --collect-all customtki
 * 增加了新建和另存为功能。
 
 *(早期迭代版本更新略...)*
+
+**网页端v1.0 (当前版本)**
+
+* 与本地端功能一致。
 
 ## 🤝 贡献与反馈
 
