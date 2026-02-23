@@ -46,7 +46,7 @@
 确保你已安装 Python 3.10 或更高版本。
 1. 克隆本仓库到本地：
    ```bash
-   git clone [https://github.com/你的用户名/SillyTavern-Worldinfo-Editor.git](https://github.com/你的用户名/SillyTavern-Worldinfo-Editor.git)
+   git clone https://github.com/MiyukiYe/SillyTavern-Worldinfo-Editor.git
    cd SillyTavern-Worldinfo-Editor
    ```
 
