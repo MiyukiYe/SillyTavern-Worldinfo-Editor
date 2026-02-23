@@ -85,7 +85,7 @@ QPushButton:hover {
 
 QPushButton:pressed {
     background-color: #4A9EE0;
-    padding-top: 9px; /* 按下时的微小下沉动态效果 */
+    padding-top: 9px; 
     padding-bottom: 7px;
 }
 
@@ -122,7 +122,7 @@ QListWidget::item:selected {
 
 /* ================= 标签页样式 ================= */
 QTabWidget::pane {
-    top: -1px; /* 隐藏原生边框瑕疵 */
+    top: -1px; 
 }
 QTabBar::tab {
     background: transparent;
@@ -157,10 +157,10 @@ QCheckBox::indicator:hover {
 QCheckBox::indicator:checked {
     background: #59B4FF;
     border: 1px solid #59B4FF;
-    image: url(); /* 这里如果想要对勾可以放一张白色的勾选SVG，PySide默认会处理颜色，或者保持纯色块也很现代 */
+    image: url(); 
 }
 
-/* ================= 滚动条样式 (隐藏丑陋的Windows原生条) ================= */
+/* ================= 滚动条样式 ================= */
 QScrollBar:vertical {
     border: none;
     background: transparent;
@@ -180,7 +180,52 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
 }
 """
 
-# ================= 自定义组件 =================
+# ================= 自定义组件: 独立大窗口编辑器 =================
+class PopoutEditorDialog(QDialog):
+    def __init__(self, initial_text, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("沉浸式内容编辑器 - 支持自由调整窗口与字体大小")
+        self.resize(800, 600) # 默认给一个大视窗
+        # 允许最大化和最小化
+        self.setWindowFlags(self.windowFlags() | Qt.WindowMaximizeButtonHint | Qt.WindowMinimizeButtonHint)
+
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(15, 15, 15, 15)
+        layout.setSpacing(10)
+
+        # 顶部工具栏：调节字体大小
+        toolbar = QHBoxLayout()
+        toolbar.addWidget(QLabel("🔠 字体大小:"))
+        
+        self.font_spinbox = QSpinBox()
+        self.font_spinbox.setRange(8, 72)
+        self.font_spinbox.setValue(16) # 独立窗口默认字号设为更舒适的16号
+        self.font_spinbox.valueChanged.connect(self.change_font)
+        toolbar.addWidget(self.font_spinbox)
+        
+        toolbar.addStretch()
+
+        self.btn_apply = QPushButton("✔️ 确认并返回")
+        self.btn_apply.clicked.connect(self.accept)
+        toolbar.addWidget(self.btn_apply)
+
+        layout.addLayout(toolbar)
+
+        # 核心编辑区
+        self.text_edit = QTextEdit()
+        self.text_edit.setPlainText(initial_text)
+        self.change_font(self.font_spinbox.value())
+        layout.addWidget(self.text_edit)
+
+    def change_font(self, size):
+        """实时改变输入框的字体大小"""
+        font = self.text_edit.font()
+        font.setPointSize(size)
+        self.text_edit.setFont(font)
+
+    def get_text(self):
+        return self.text_edit.toPlainText()
+
 class DragListWidget(QListWidget):
     itemMoved = Signal(int, int) 
     def __init__(self, parent=None):
@@ -217,11 +262,16 @@ class ContentEditorWidget(QWidget):
         self.btn_replace_all = QPushButton("全部替换")
         self.btn_replace_all.setObjectName("SecondaryBtn")
 
+        # 新增：打开独立窗口的按钮
+        self.btn_popout = QPushButton("🗔 独立窗口编辑")
+        self.btn_popout.setObjectName("SecondaryBtn")
+
         tools_layout.addWidget(self.find_input)
         tools_layout.addWidget(self.btn_find)
         tools_layout.addWidget(self.replace_input)
         tools_layout.addWidget(self.btn_replace)
         tools_layout.addWidget(self.btn_replace_all)
+        tools_layout.addWidget(self.btn_popout)
 
         self.text_edit = QTextEdit()
         self.text_edit.setMinimumHeight(150)
@@ -232,8 +282,18 @@ class ContentEditorWidget(QWidget):
         self.btn_find.clicked.connect(self.find_next)
         self.btn_replace.clicked.connect(self.replace_current)
         self.btn_replace_all.clicked.connect(self.replace_all)
+        self.btn_popout.clicked.connect(self.open_popout) # 绑定弹窗事件
         self.find_input.textChanged.connect(self.highlight_all) 
         self.text_edit.textChanged.connect(self.textChanged.emit)
+
+    def open_popout(self):
+        """呼出沉浸式大窗口编辑器"""
+        dialog = PopoutEditorDialog(self.text_edit.toPlainText(), self)
+        if dialog.exec() == QDialog.Accepted:
+            # 如果点击了确认，则将大窗口里的文本同步回这里的输入框
+            self.text_edit.setPlainText(dialog.get_text())
+            self.highlight_all() # 重新触发高亮逻辑
+            self.textChanged.emit() # 触发修改保存机制
 
     def highlight_all(self):
         search_text = self.find_input.text()
@@ -483,7 +543,7 @@ class MainWindow(QMainWindow):
             w = QWidget()
             h_layout = QHBoxLayout(w)
             h_layout.setContentsMargins(0, 0, 0, 0)
-            h_layout.setSpacing(15) # 复选框之间的间距
+            h_layout.setSpacing(15) 
             w.checkboxes = {}
             for val, txt in kwargs.get('options', {}).items():
                 cb = QCheckBox(txt)
@@ -494,8 +554,6 @@ class MainWindow(QMainWindow):
 
         if label: 
             label_widget = layout.labelForField(w)
-            # ================= 修复空指针报错 =================
-            # 因为复选框使用了空标签占位，如果获取不到外部 Label，则单独加粗复选框自身文本
             if label_widget:
                 font = label_widget.font()
                 font.setBold(True)
@@ -525,11 +583,10 @@ class MainWindow(QMainWindow):
         self.toggle_visibility('recursionLevel', self.field_map['delayUntilRecursion']['widget'].isChecked())
 
     def _create_tab_widget(self):
-        """辅助方法，创建一个内边距舒适的 Tab 面板"""
         tab = QWidget()
         layout = QFormLayout(tab)
         layout.setContentsMargins(25, 25, 25, 25)
-        layout.setSpacing(18) # 表单项的垂直间距
+        layout.setSpacing(18) 
         return tab, layout
 
     def setup_tabs(self):
@@ -541,7 +598,7 @@ class MainWindow(QMainWindow):
         self.add_field(layout_basic, "条目内容 (Content):", "content", "content_editor") 
         self.add_field(layout_basic, "自动化 ID (Automation ID):", "automationId", "text") 
         
-        layout_basic.addRow(QLabel("")) # 空行占位
+        layout_basic.addRow(QLabel("")) 
         self.add_field(layout_basic, "✅ 启用此条目 (Enable)", "disable", "invert_bool") 
         self.add_field(layout_basic, "生效策略 (Strategy):", "strategy", "strategy_combo", items=["条件触发 (🟢 默认)", "常驻 (🔵 始终插入)", "向量化匹配 (🔗 相似度)"]) 
         self.tabs.addTab(tab_basic, "基础设定")
