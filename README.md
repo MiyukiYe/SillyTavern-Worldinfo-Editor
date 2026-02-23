@@ -37,7 +37,7 @@
 ## 📦 安装与使用
 
 ### 选项 A：直接运行 (推荐普通用户)
-1. 前往仓库的 [Releases](https://github.com/MiyukiYe/SillyTavern-Worldinfo-Editor/releases) 页面下载最新打包好的 `.exe` 可执行文件。
+1. 前往仓库的 [Releases](https://github.com/MiyukiYe/SillyTavern-Worldinfo-Editor/releases) 页面下载最新打包好的 `.exe` 或 `.html` 文件。
 2. 无需安装任何环境，双击即可运行！
 3. 点击左上角 `文件 -> 打开`，选择你从 SillyTavern 导出的 `.json` 世界书文件即可开始流畅编辑。
 
