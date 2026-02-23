@@ -549,8 +549,8 @@ class ConvertDialog(QDialog):
         layout.setSpacing(15)
         layout.setContentsMargins(20, 20, 20, 20)
         
-        self.chk_title = QCheckBox("标题/备注 (Comment)")
-        self.chk_keys = QCheckBox("触发词与过滤器 (Keys & Filters)")
+        self.chk_title = QCheckBox("条目标题/备忘录 (Comment)")
+        self.chk_keys = QCheckBox("主要关键字和可选过滤器 (Keys & Filters)")
         self.chk_content = QCheckBox("条目内容 (Content)")
         
         self.chk_title.setChecked(True)
