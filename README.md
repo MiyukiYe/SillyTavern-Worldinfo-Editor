@@ -1,116 +1,48 @@
-# 📖 SillyTavern Worldinfo Editor (酒馆世界书本地编辑器)
+# 📖 SillyTavern World Info Editor (ST世界书本地编辑器)
 
-一款专为 SillyTavern（酒馆）跑团/聊天玩家打造的**轻量级、现代化、防丢护航**的本地世界书编辑器。
+一个专为 **SillyTavern (酒馆)** 用户打造的现代化、纯本地的“世界书 (World Info / Lorebooks)”独立编辑器。
 
-当世界书条目过多时，SillyTavern 网页端自带的编辑器往往会出现严重的输入卡顿和内存溢出。本项目正是为了彻底解决这一痛点而生——**告别浏览器卡顿，丝滑管理你的大部头设定集！**
+## 💡 为什么需要这个工具？
 
-## ✨ 核心特性 (Key Features)
+当 SillyTavern 的世界书条目积累到几百甚至上千条时，基于浏览器前端 DOM 的渲染会遭遇严重的性能瓶颈，导致网页端在打字、滚动和保存时出现令人抓狂的卡顿。
+本项目旨在提供一个**脱离网页端**的轻量级原生桌面化解决方案，用极其丝滑的响应速度和现代化的 UI，彻底解放你的创作生产力！
 
-* 🚀 **极致流畅的本地编辑**：纯本地原生 GUI 程序，彻底摆脱网页端渲染长文本时的卡顿。
-* 🚀 **网页端适配手机、平板**：HTML + JS + CSS，依旧告别卡顿。
-* 🎨 **现代高颜值 UI**：采用 `customtkinter` 打造的纯正 Dark Mode（深色模式），护眼。
-<img width="863" height="584" alt="Snipaste_2026-02-22_20-59-28" src="https://github.com/user-attachments/assets/419774d1-9312-4c02-9ec1-cb185e1aa0fc" />
+![UI Screenshot](./screenshot.png) *(提示：请在这里放一张你软件运行时的精美截图)*
 
-* 🔍 **全局搜索 & 高亮替换**：
-* 左侧列表支持对**标题、触发词、正文**进行深层全局检索。
-<img width="182" height="519" alt="Snipaste_2026-02-22_21-01-11" src="https://github.com/user-attachments/assets/f7822873-e2e5-466e-991a-60ac6aaadfb5" />
+## ✨ 核心特性
 
-* 右侧编辑器自带“查找与替换”功能，目标内容**红底白字**醒目高亮，替换成功**蓝底白字**即时反馈。
-<img width="668" height="519" alt="Snipaste_2026-02-22_21-01-55" src="https://github.com/user-attachments/assets/e678b773-0054-4de6-a0a8-b4fab1292165" />
+本项目完美对齐了 [SillyTavern 官方世界书文档](https://docs.sillytavern.app/usage/worldinfo/) 中的所有设定，不仅没有功能妥协，还加入了大量专为“世界书长篇创作者”设计的效率工具。
 
+### 🌍 1. 100% 满血功能支持
+完美映射并解析 ST 世界书底层的各项复杂逻辑（包括最新的特性），并严谨处理了继承全局设置的 `null` 空值状态：
+- **高级策略**：支持常规触发、常驻 (Constant) 以及向量化匹配 (Vectorized)。
+- **插入与过滤**：支持 8 种精确插入位置（含 @ 特定深度与 Outlet 出口）、4 种多级逻辑过滤器、全字匹配/区分大小写。
+- **递归与时效**：完整支持递归扫描阻止、延迟递归、递归层级分组，以及冷却 (Cooldown)、粘性 (Sticky) 和延迟 (Delay) 等时效性规则。
+- **高级群组**：支持互斥组 (Group)、组权重以及组评分 (Group Scoring) 判定。
+- **拓展扫描**：涵盖角色备注 (Depth Prompt)、场景预设、创作者笔记等多维度附加匹配源。
 
+### 🚀 2. 极致的性能与交互体验
+- **现代蓝白主题 UI**：告别 Windows 原生生硬控件，采用全局自定义 QSS，提供充满呼吸感的排版与微动效。
+- **全局极速检索**：支持同时针对标题、触发词、过滤器和具体**内容**进行毫秒级全局过滤。
+- **丝滑排序**：支持列表条目**鼠标直接拖拽排序**，或输入数字精准“空降”移动。
 
-* 🖱️ **丝滑的条目排序**：
-* 支持**鼠标按住直接拖拽**左侧列表进行排序。
-* 提供【📌 移至】功能，输入序号即可让条目一键跨越百行“瞬移”。（所有位置调整将完美同步至底层 JSON 键值）。
-<img width="442" height="184" alt="Snipaste_2026-02-22_21-02-50" src="https://github.com/user-attachments/assets/59658a26-7a63-44da-83fa-af947c5afde5" />
-
-
-* 🀄 **一键简繁转换**：内置 `zhconv` 引擎，一键将上万字的正文在“简体中文”和“繁体中文”间无缝切换，再也不用复制到外部网页处理了。
-<img width="668" height="519" alt="Snipaste_2026-02-22_21-03-29" src="https://github.com/user-attachments/assets/02ceadd3-0a03-4d28-9184-3667f4ab765e" />
-
-* 🛡️ **数据护航**：
-* **自动备份**：每次打开世界书时，会在同目录下自动生成一份带有时间戳的 `_backup` 备份文件，误删也能随时回档。
-* **防丢拦截**：实时追踪修改状态（标题栏 `🔴 *` 提示）。意外点击右上角“X”关闭时，会强制拦截并弹出“保存/另存为”确认框，保护你的灵感心血。
-<img width="338" height="127" alt="Snipaste_2026-02-22_21-03-48" src="https://github.com/user-attachments/assets/43435169-49ca-43da-9018-aeffa646101b" />
-
-
-* 📁 **全生命周期管理**：支持从零**新建**空白世界书结构，**另存为**新文件。
-<img width="1725" height="1159" alt="image" src="https://github.com/user-attachments/assets/041bce08-2d56-4a67-8c01-6bede8b8b955" />
-
-## 📥 下载与使用 (How to Use)
-
-**普通用户（推荐）：**
-
-1. 前往本仓库的 [Releases 页面](https://github.com/MiyukiYe/SillyTavern-Worldbook-Editor/releases) 下载最新版本的 `.exe` 可执行文件或 `.html`。
-2. 无需安装任何环境，双击直接运行。
-3. 点击顶部导航栏的 `📂 打开`，选择你的 SillyTavern 世界书文件（`.json` 格式）即可开始丝滑编辑。
-4. 编辑完成后点击 `💾 保存`，即可直接在酒馆中生效。
-
-> **⚠️ 杀毒软件误报说明：**
-> 本程序使用 PyInstaller 打包为单文件独立运行版。由于个人开发者没有购买昂贵的微软数字签名证书，Windows Defender 或其他杀毒软件可能会弹出“已保护你的电脑”的未知发布者拦截，或产生误报。
-> **解决办法：** 点击弹窗上的 `更多信息` -> `仍要运行` 即可。本工具完全开源，所有代码均在 `st_worldinfo_editor.py` 中，绝无恶意行为，请放心使用。
-
-## 🛠️ 开发者指南 (For Developers)
-
-如果你熟悉 Python，并希望自己运行源码或进行二次开发，请按照以下步骤配置环境：
-
-**1. 克隆仓库**
-
-```bash
-git clone https://github.com/你的用户名/你的仓库名.git
-cd 你的仓库名
-
-```
-
-**2. 安装依赖库**
-本工具依赖 `customtkinter` (用于现代 UI) 和 `zhconv` (用于简繁转换)：
-
-```bash
-pip install customtkinter zhconv
-
-```
-
-**3. 运行脚本**
-
-```bash
-python st_worldinfo_editor.py
-
-```
-
-**4. 自行打包为 .exe**
-
-```bash
-pip install pyinstaller
-pyinstaller --noconsole --onefile --hidden-import zhconv --collect-all customtkinter st_worldinfo_editor.py
-
-```
-
-编译成功后，可执行文件将生成在 `dist` 文件夹中。
-
-## 📝 更新日志 (Changelog)
-
-**本地端v9.0 (当前版本)**
-
-* 彻底重构 UI，引入 CustomTkinter 现代深色主题。
-* 增加 Windows 高 DPI 适配，解决文本模糊问题。
-* 完善了退出时的未保存拦截机制（防丢护航）。
-* 增加了新建和另存为功能。
-
-*(早期迭代版本更新略...)*
-
-**网页端v1.0 (当前版本)**
-
-* 与本地端功能基本一致。
-* 无自动备份功能。
-* 无新建世界书功能。
-
-## 🤝 贡献与反馈
-
-欢迎在 Issues 中提出你在编辑设定集时遇到的痛点，或者提交 Pull Request 共同完善这个小工具。如果你觉得这个工具拯救了你的酒馆体验，请点击右上角的 ⭐ **Star** 支持一下！
+### 🛠️ 3. 专为创作者打造的效率工具
+- **高级查找与替换**：内置专属文本编辑器，支持查找词“黄字红底”全局高亮，替换词“白字蓝底”精准标识。
+- **防丢/容灾机制**：每次打开文件时，自动在同目录下生成 `.backup` 备份文件；拥有完善的未保存退出拦截提示。
+- **无损简繁转换**：内置自动化一键简繁转换功能（支持标题/触发词/内容自由勾选），转换后不覆盖原文件，而是自动生成带有后缀的新条目供对比。
 
 ---
 
-*Created with ❤️ for the SillyTavern community.*
+## 📦 安装与使用
 
----
+### 选项 A：直接运行 (推荐普通用户)
+1. 前往仓库的 [Releases](#) 页面下载最新打包好的 `.exe` 可执行文件。
+2. 无需安装任何环境，双击即可运行！
+3. 点击左上角 `文件 -> 打开`，选择你从 SillyTavern 导出的 `.json` 世界书文件即可开始流畅编辑。
+
+### 选项 B：从源码运行 (推荐开发者)
+确保你已安装 Python 3.10 或更高版本。
+1. 克隆本仓库到本地：
+   ```bash
+   git clone [https://github.com/你的用户名/ST_WorldInfo_Editor.git](https://github.com/你的用户名/ST_WorldInfo_Editor.git)
+   cd ST_WorldInfo_Editor
