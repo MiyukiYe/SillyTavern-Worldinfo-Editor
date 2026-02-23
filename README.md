@@ -6,7 +6,9 @@
 
 当 SillyTavern 的世界书条目积累到几百甚至上千条时，基于浏览器前端 DOM 的渲染会遭遇严重的性能瓶颈，导致网页端在打字、滚动和保存时出现令人抓狂的卡顿。
 本项目旨在提供一个**脱离网页端**的轻量级原生桌面化解决方案，用极其丝滑的响应速度和现代化的 UI，彻底解放你的创作生产力！
-<img width="2560" height="1528" alt="image" src="https://github.com/user-attachments/assets/e08c9447-b54a-4b30-b2c9-d1e83eecb90f" />
+
+<img width="2560" height="1518" alt="image" src="https://github.com/user-attachments/assets/fa61945b-07c8-406a-a3a2-9b1c4587c327" />
+
 
 ## ✨ 核心特性
 
@@ -45,3 +47,44 @@
    ```bash
    git clone [https://github.com/你的用户名/ST_WorldInfo_Editor.git](https://github.com/你的用户名/ST_WorldInfo_Editor.git)
    cd ST_WorldInfo_Editor
+
+```
+
+2. 安装必要的依赖库：
+```bash
+pip install PySide6 zhconv
+
+```
+
+
+3. 运行主程序：
+```bash
+python main.py
+
+```
+
+
+
+---
+
+## 🛠️ 构建可执行文件
+
+如果你想自己将源码打包为 `.exe` 文件：
+
+```bash
+pip install pyinstaller
+pyinstaller -F -w -i icon.ico main.py
+
+```
+
+打包完成的文件将生成在 `dist` 目录下。
+
+## 🤝 参与贡献
+
+欢迎提交 Issue 和 Pull Request！如果你有关于界面布局、快捷键支持或是批量处理功能的绝妙想法，非常期待你的加入。
+
+## 📄 开源协议
+
+本项目基于 [MIT License](https://www.google.com/search?q=LICENSE) 开源，你可以自由地使用、修改和分发。
+
+```
