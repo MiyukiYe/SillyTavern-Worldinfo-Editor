@@ -68,7 +68,6 @@
 ```bash
 pip install pyinstaller
 pyinstaller -F -w -i icon.ico main.py
-
 ```
 
 打包完成的文件将生成在 `dist` 目录下。
@@ -81,4 +80,3 @@ pyinstaller -F -w -i icon.ico main.py
 
 本项目基于 [MIT License](https://www.google.com/search?q=LICENSE) 开源，你可以自由地使用、修改和分发。
 
-```
