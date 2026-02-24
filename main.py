@@ -14,364 +14,86 @@ from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget,
 
 # ================= 现代蓝白主题 (日间模式) =================
 MODERN_BLUE_THEME = """
-/* 使用 QWidget 替代 *，避免过度覆盖特定的控件属性 */
 QWidget {
     font-family: "Segoe UI Variable", "Microsoft YaHei", "PingFang SC", sans-serif;
     font-size: 13px;
     color: #2C3E50;
     outline: none;
 }
-
-QMainWindow, QDialog {
-    background-color: #F2F7FB; 
-}
-
-#SidePanel, #MainTabs::pane {
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    border: 1px solid #E1E8EE;
-}
-
-QLineEdit, QTextEdit, QSpinBox, QComboBox {
-    background-color: #F8FAFC;
-    border: 1px solid #D2DCE6;
-    border-radius: 6px;
-    padding: 6px 10px;
-    selection-background-color: #75C2F6;
-}
-
-QLineEdit:hover, QTextEdit:hover, QSpinBox:hover, QComboBox:hover {
-    border: 1px solid #75C2F6;
-    background-color: #FFFFFF;
-}
-
-QLineEdit:focus, QTextEdit:focus, QSpinBox:focus, QComboBox:focus {
-    border: 2px solid #59B4FF;
-    background-color: #FFFFFF;
-}
-
-QComboBox::drop-down {
-    subcontrol-origin: padding;
-    subcontrol-position: top right;
-    width: 20px;
-    border-left: none;
-}
-QComboBox QAbstractItemView {
-    border: 1px solid #D2DCE6;
-    border-radius: 6px;
-    background-color: #FFFFFF;
-    selection-background-color: #ECF5FF;
-    selection-color: #59B4FF;
-    padding: 4px;
-}
-
-QPushButton {
-    background-color: #59B4FF;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 6px;
-    padding: 8px 14px;
-    font-weight: bold;
-}
-
-QPushButton:hover {
-    background-color: #75C2F6;
-}
-
-QPushButton:pressed {
-    background-color: #4A9EE0;
-    padding-top: 9px; 
-    padding-bottom: 7px;
-}
-
-QPushButton#SecondaryBtn {
-    background-color: #F0F4F8;
-    color: #59B4FF;
-    border: 1px solid #D2DCE6;
-}
-QPushButton#SecondaryBtn:hover {
-    background-color: #E1EDF7;
-    border: 1px solid #59B4FF;
-}
-
-QListWidget {
-    background-color: transparent;
-    border: none;
-}
-QListWidget::item {
-    padding: 10px;
-    margin: 2px 5px;
-    border-radius: 6px;
-    color: #34495E;
-}
-QListWidget::item:hover {
-    background-color: #E8F2FA;
-}
-QListWidget::item:selected {
-    background-color: #59B4FF;
-    color: #FFFFFF;
-    font-weight: bold;
-}
-
-QTabWidget::pane {
-    top: -1px; 
-}
-QTabBar::tab {
-    background: transparent;
-    color: #7F8C8D;
-    padding: 10px 20px;
-    border-bottom: 3px solid transparent;
-    font-size: 14px;
-    font-weight: bold;
-}
-QTabBar::tab:hover {
-    color: #59B4FF;
-}
-QTabBar::tab:selected {
-    color: #59B4FF;
-    border-bottom: 3px solid #59B4FF;
-}
-
-QCheckBox {
-    spacing: 8px;
-}
-QCheckBox::indicator {
-    width: 18px;
-    height: 18px;
-    border-radius: 4px;
-    border: 1px solid #D2DCE6;
-    background: #F8FAFC;
-}
-QCheckBox::indicator:hover {
-    border: 1px solid #59B4FF;
-}
-QCheckBox::indicator:checked {
-    background: #59B4FF;
-    border: 1px solid #59B4FF;
-}
-
-QScrollBar:vertical {
-    border: none;
-    background: transparent;
-    width: 8px;
-    margin: 0px;
-}
-QScrollBar::handle:vertical {
-    background: #CBD5E1;
-    min-height: 20px;
-    border-radius: 4px;
-}
-QScrollBar::handle:vertical:hover {
-    background: #94A3B8;
-}
-QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
-    height: 0px;
-}
-
-/* 顶部菜单栏 */
-QMenuBar {
-    background-color: #FFFFFF;
-    border-bottom: 1px solid #D2DCE6;
-}
-QMenuBar::item:selected {
-    background-color: #F2F7FB;
-}
-QMenu {
-    background-color: #FFFFFF;
-    border: 1px solid #D2DCE6;
-}
-QMenu::item:selected {
-    background-color: #59B4FF;
-    color: #FFFFFF;
-}
-
-/* 强化的表单标题 */
-QLabel#FormLabel, QCheckBox#FormLabel {
-    font-weight: bold;
-    color: #34495E;
-}
+QMainWindow, QDialog { background-color: #F2F7FB; }
+#SidePanel, #MainTabs::pane { background-color: #FFFFFF; border-radius: 10px; border: 1px solid #E1E8EE; }
+QLineEdit, QTextEdit, QSpinBox, QComboBox { background-color: #F8FAFC; border: 1px solid #D2DCE6; border-radius: 6px; padding: 6px 10px; selection-background-color: #75C2F6; }
+QLineEdit:hover, QTextEdit:hover, QSpinBox:hover, QComboBox:hover { border: 1px solid #75C2F6; background-color: #FFFFFF; }
+QLineEdit:focus, QTextEdit:focus, QSpinBox:focus, QComboBox:focus { border: 2px solid #59B4FF; background-color: #FFFFFF; }
+QComboBox::drop-down { subcontrol-origin: padding; subcontrol-position: top right; width: 20px; border-left: none; }
+QComboBox QAbstractItemView { border: 1px solid #D2DCE6; border-radius: 6px; background-color: #FFFFFF; selection-background-color: #ECF5FF; selection-color: #59B4FF; padding: 4px; }
+QPushButton { background-color: #59B4FF; color: #FFFFFF; border: none; border-radius: 6px; padding: 8px 14px; font-weight: bold; }
+QPushButton:hover { background-color: #75C2F6; }
+QPushButton:pressed { background-color: #4A9EE0; padding-top: 9px; padding-bottom: 7px; }
+QPushButton#SecondaryBtn { background-color: #F0F4F8; color: #59B4FF; border: 1px solid #D2DCE6; }
+QPushButton#SecondaryBtn:hover { background-color: #E1EDF7; border: 1px solid #59B4FF; }
+QListWidget { background-color: transparent; border: none; }
+QListWidget::item { padding: 10px; margin: 2px 5px; border-radius: 6px; color: #34495E; }
+QListWidget::item:hover { background-color: #E8F2FA; }
+QListWidget::item:selected { background-color: #59B4FF; color: #FFFFFF; font-weight: bold; }
+QTabWidget::pane { top: -1px; }
+QTabBar::tab { background: transparent; color: #7F8C8D; padding: 10px 20px; border-bottom: 3px solid transparent; font-size: 14px; font-weight: bold; }
+QTabBar::tab:hover { color: #59B4FF; }
+QTabBar::tab:selected { color: #59B4FF; border-bottom: 3px solid #59B4FF; }
+QCheckBox { spacing: 8px; }
+QCheckBox::indicator { width: 18px; height: 18px; border-radius: 4px; border: 1px solid #D2DCE6; background: #F8FAFC; }
+QCheckBox::indicator:hover { border: 1px solid #59B4FF; }
+QCheckBox::indicator:checked { background: #59B4FF; border: 1px solid #59B4FF; }
+QScrollBar:vertical { border: none; background: transparent; width: 8px; margin: 0px; }
+QScrollBar::handle:vertical { background: #CBD5E1; min-height: 20px; border-radius: 4px; }
+QScrollBar::handle:vertical:hover { background: #94A3B8; }
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0px; }
+QMenuBar { background-color: #FFFFFF; border-bottom: 1px solid #D2DCE6; }
+QMenuBar::item:selected { background-color: #F2F7FB; }
+QMenu { background-color: #FFFFFF; border: 1px solid #D2DCE6; }
+QMenu::item:selected { background-color: #59B4FF; color: #FFFFFF; }
+QLabel#FormLabel, QCheckBox#FormLabel { font-weight: bold; color: #34495E; }
 """
 
 # ================= 深邃暗黑主题 (夜间模式) =================
 DARK_THEME = """
-QWidget {
-    font-family: "Segoe UI Variable", "Microsoft YaHei", "PingFang SC", sans-serif;
-    font-size: 13px;
-    color: #E0E0E0;
-    outline: none;
-}
-
-QMainWindow, QDialog {
-    background-color: #121212; 
-}
-
-#SidePanel, #MainTabs::pane {
-    background-color: #1E1E1E;
-    border-radius: 10px;
-    border: 1px solid #333333;
-}
-
-QLineEdit, QTextEdit, QSpinBox, QComboBox {
-    background-color: #2D2D30;
-    border: 1px solid #3E3E42;
-    border-radius: 6px;
-    padding: 6px 10px;
-    selection-background-color: #007ACC;
-    color: #E0E0E0;
-}
-
-QLineEdit:hover, QTextEdit:hover, QSpinBox:hover, QComboBox:hover {
-    border: 1px solid #007ACC;
-    background-color: #333337;
-}
-
-QLineEdit:focus, QTextEdit:focus, QSpinBox:focus, QComboBox:focus {
-    border: 2px solid #007ACC;
-    background-color: #1E1E1E;
-}
-
-QComboBox::drop-down {
-    subcontrol-origin: padding;
-    subcontrol-position: top right;
-    width: 20px;
-    border-left: none;
-}
-QComboBox QAbstractItemView {
-    border: 1px solid #3E3E42;
-    border-radius: 6px;
-    background-color: #2D2D30;
-    selection-background-color: #3E3E42;
-    selection-color: #59B4FF;
-    padding: 4px;
-    color: #E0E0E0;
-}
-
-QPushButton {
-    background-color: #007ACC;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 6px;
-    padding: 8px 14px;
-    font-weight: bold;
-}
-
-QPushButton:hover {
-    background-color: #1F8AD2;
-}
-
-QPushButton:pressed {
-    background-color: #005A9E;
-    padding-top: 9px; 
-    padding-bottom: 7px;
-}
-
-QPushButton#SecondaryBtn {
-    background-color: #2D2D30;
-    color: #007ACC;
-    border: 1px solid #3E3E42;
-}
-QPushButton#SecondaryBtn:hover {
-    background-color: #3E3E42;
-    border: 1px solid #007ACC;
-}
-
-QListWidget {
-    background-color: transparent;
-    border: none;
-}
-QListWidget::item {
-    padding: 10px;
-    margin: 2px 5px;
-    border-radius: 6px;
-    color: #CCCCCC;
-}
-QListWidget::item:hover {
-    background-color: #2A2D30;
-}
-QListWidget::item:selected {
-    background-color: #007ACC;
-    color: #FFFFFF;
-    font-weight: bold;
-}
-
-QTabWidget::pane {
-    top: -1px; 
-}
-QTabBar::tab {
-    background: transparent;
-    color: #858585;
-    padding: 10px 20px;
-    border-bottom: 3px solid transparent;
-    font-size: 14px;
-    font-weight: bold;
-}
-QTabBar::tab:hover {
-    color: #007ACC;
-}
-QTabBar::tab:selected {
-    color: #007ACC;
-    border-bottom: 3px solid #007ACC;
-}
-
-QCheckBox {
-    spacing: 8px;
-}
-QCheckBox::indicator {
-    width: 18px;
-    height: 18px;
-    border-radius: 4px;
-    border: 1px solid #3E3E42;
-    background: #2D2D30;
-}
-QCheckBox::indicator:hover {
-    border: 1px solid #007ACC;
-}
-QCheckBox::indicator:checked {
-    background: #007ACC;
-    border: 1px solid #007ACC;
-}
-
-QScrollBar:vertical {
-    border: none;
-    background: transparent;
-    width: 8px;
-    margin: 0px;
-}
-QScrollBar::handle:vertical {
-    background: #424242;
-    min-height: 20px;
-    border-radius: 4px;
-}
-QScrollBar::handle:vertical:hover {
-    background: #686868;
-}
-QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
-    height: 0px;
-}
-
-QMenuBar {
-    background-color: #1E1E1E;
-    border-bottom: 1px solid #333333;
-}
-QMenuBar::item:selected {
-    background-color: #333337;
-}
-QMenu {
-    background-color: #1E1E1E;
-    border: 1px solid #333333;
-}
-QMenu::item:selected {
-    background-color: #007ACC;
-    color: #FFFFFF;
-}
-
-QLabel#FormLabel, QCheckBox#FormLabel {
-    font-weight: bold;
-    color: #CCCCCC;
-}
+QWidget { font-family: "Segoe UI Variable", "Microsoft YaHei", "PingFang SC", sans-serif; font-size: 13px; color: #E0E0E0; outline: none; }
+QMainWindow, QDialog { background-color: #121212; }
+#SidePanel, #MainTabs::pane { background-color: #1E1E1E; border-radius: 10px; border: 1px solid #333333; }
+QLineEdit, QTextEdit, QSpinBox, QComboBox { background-color: #2D2D30; border: 1px solid #3E3E42; border-radius: 6px; padding: 6px 10px; selection-background-color: #007ACC; color: #E0E0E0; }
+QLineEdit:hover, QTextEdit:hover, QSpinBox:hover, QComboBox:hover { border: 1px solid #007ACC; background-color: #333337; }
+QLineEdit:focus, QTextEdit:focus, QSpinBox:focus, QComboBox:focus { border: 2px solid #007ACC; background-color: #1E1E1E; }
+QComboBox::drop-down { subcontrol-origin: padding; subcontrol-position: top right; width: 20px; border-left: none; }
+QComboBox QAbstractItemView { border: 1px solid #3E3E42; border-radius: 6px; background-color: #2D2D30; selection-background-color: #3E3E42; selection-color: #59B4FF; padding: 4px; color: #E0E0E0; }
+QPushButton { background-color: #007ACC; color: #FFFFFF; border: none; border-radius: 6px; padding: 8px 14px; font-weight: bold; }
+QPushButton:hover { background-color: #1F8AD2; }
+QPushButton:pressed { background-color: #005A9E; padding-top: 9px; padding-bottom: 7px; }
+QPushButton#SecondaryBtn { background-color: #2D2D30; color: #007ACC; border: 1px solid #3E3E42; }
+QPushButton#SecondaryBtn:hover { background-color: #3E3E42; border: 1px solid #007ACC; }
+QListWidget { background-color: transparent; border: none; }
+QListWidget::item { padding: 10px; margin: 2px 5px; border-radius: 6px; color: #CCCCCC; }
+QListWidget::item:hover { background-color: #2A2D30; }
+QListWidget::item:selected { background-color: #007ACC; color: #FFFFFF; font-weight: bold; }
+QTabWidget::pane { top: -1px; }
+QTabBar::tab { background: transparent; color: #858585; padding: 10px 20px; border-bottom: 3px solid transparent; font-size: 14px; font-weight: bold; }
+QTabBar::tab:hover { color: #007ACC; }
+QTabBar::tab:selected { color: #007ACC; border-bottom: 3px solid #007ACC; }
+QCheckBox { spacing: 8px; }
+QCheckBox::indicator { width: 18px; height: 18px; border-radius: 4px; border: 1px solid #3E3E42; background: #2D2D30; }
+QCheckBox::indicator:hover { border: 1px solid #007ACC; }
+QCheckBox::indicator:checked { background: #007ACC; border: 1px solid #007ACC; }
+QScrollBar:vertical { border: none; background: transparent; width: 8px; margin: 0px; }
+QScrollBar::handle:vertical { background: #424242; min-height: 20px; border-radius: 4px; }
+QScrollBar::handle:vertical:hover { background: #686868; }
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0px; }
+QMenuBar { background-color: #1E1E1E; border-bottom: 1px solid #333333; }
+QMenuBar::item:selected { background-color: #333337; }
+QMenu { background-color: #1E1E1E; border: 1px solid #333333; }
+QMenu::item:selected { background-color: #007ACC; color: #FFFFFF; }
+QLabel#FormLabel, QCheckBox#FormLabel { font-weight: bold; color: #CCCCCC; }
 """
 
-# ================= 自定义组件: 独立大窗口编辑器 =================
+# ================= 自定义组件 =================
 class PopoutEditorDialog(QDialog):
     def __init__(self, initial_text, parent=None):
         super().__init__(parent)
@@ -406,23 +128,21 @@ class PopoutEditorDialog(QDialog):
         layout.addWidget(self.text_edit)
 
     def change_font(self, size):
-        # [修复] 通过局部注入 QSS 强制提升优先级，覆盖全局字号限制
         self.text_edit.setStyleSheet(f"QTextEdit {{ font-size: {size}pt; }}")
 
     def get_text(self):
         return self.text_edit.toPlainText()
 
 class DragListWidget(QListWidget):
-    itemMoved = Signal(int, int) 
+    itemsReordered = Signal() 
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setDragDropMode(QAbstractItemView.InternalMove)
+        self.setSelectionMode(QAbstractItemView.ExtendedSelection)
+        
     def dropEvent(self, event):
-        old_index = self.currentRow()
         super().dropEvent(event)
-        new_index = self.currentRow()
-        if old_index != new_index and old_index != -1 and new_index != -1:
-            self.itemMoved.emit(old_index, new_index)
+        self.itemsReordered.emit() 
 
 class ContentEditorWidget(QWidget):
     textChanged = Signal()
@@ -472,7 +192,6 @@ class ContentEditorWidget(QWidget):
         self.text_edit.textChanged.connect(self.textChanged.emit)
 
     def open_popout(self):
-        # 传入 self 作为 parent，让子窗口继承主窗口的主题(暗黑/日间)
         dialog = PopoutEditorDialog(self.text_edit.toPlainText(), self)
         if dialog.exec() == QDialog.Accepted:
             self.text_edit.setPlainText(dialog.get_text())
@@ -581,7 +300,6 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("SillyTavern 世界书本地编辑器")
         self.resize(1150, 800)
 
-        # 状态标记
         self.is_dark_mode = False 
         self.setStyleSheet(MODERN_BLUE_THEME)
 
@@ -599,7 +317,6 @@ class MainWindow(QMainWindow):
         layout.setContentsMargins(20, 20, 20, 20)
         layout.setSpacing(20)
 
-        # ====== 左侧面板 ======
         left_panel = QFrame()
         left_panel.setObjectName("SidePanel") 
         left_panel.setFixedWidth(300)
@@ -616,9 +333,9 @@ class MainWindow(QMainWindow):
 
         btn_layout1 = QHBoxLayout()
         self.btn_add = QPushButton("➕ 新增")
-        self.btn_del = QPushButton("❌ 删除")
+        self.btn_del = QPushButton("❌ 批量删除")
         self.btn_del.setObjectName("SecondaryBtn") 
-        self.btn_move = QPushButton("📍 移至...")
+        self.btn_move = QPushButton("📍 批量移至...")
         self.btn_move.setObjectName("SecondaryBtn")
         btn_layout1.addWidget(self.btn_add)
         btn_layout1.addWidget(self.btn_move)
@@ -631,7 +348,6 @@ class MainWindow(QMainWindow):
         self.btn_simp.setObjectName("SecondaryBtn")
         self.btn_trad.setObjectName("SecondaryBtn")
         
-        # [新增] 日间/暗黑模式切换按钮
         self.btn_theme = QPushButton("🌙 暗黑模式")
         self.btn_theme.setObjectName("SecondaryBtn")
 
@@ -642,7 +358,6 @@ class MainWindow(QMainWindow):
 
         layout.addWidget(left_panel)
 
-        # ====== 右侧标签页 ======
         self.tabs = QTabWidget()
         self.tabs.setObjectName("MainTabs")
         layout.addWidget(self.tabs)
@@ -656,14 +371,14 @@ class MainWindow(QMainWindow):
         self.btn_add.clicked.connect(self.add_entry)
         self.btn_del.clicked.connect(self.delete_entry)
         
-        self.list_widget.itemMoved.connect(self.on_item_dragged)
+        self.list_widget.itemsReordered.connect(self.on_items_reordered)
+        
         self.btn_move.clicked.connect(self.move_to_index)
         self.btn_simp.clicked.connect(lambda: self.convert_chinese('zh-cn'))
         self.btn_trad.clicked.connect(lambda: self.convert_chinese('zh-tw'))
         self.btn_theme.clicked.connect(self.toggle_theme)
 
     def toggle_theme(self):
-        """日夜模式一键切换逻辑"""
         self.is_dark_mode = not self.is_dark_mode
         if self.is_dark_mode:
             self.setStyleSheet(DARK_THEME)
@@ -753,7 +468,6 @@ class MainWindow(QMainWindow):
 
         if label: 
             label_widget = layout.labelForField(w)
-            # 通过绑定 ObjectName，让 QSS 自动接管主题颜色的变换，杜绝 Hardcode 报错
             if label_widget:
                 label_widget.setObjectName("FormLabel")
             elif isinstance(w, QCheckBox):
@@ -877,13 +591,21 @@ class MainWindow(QMainWindow):
         except Exception as e:
             QMessageBox.critical(self, "读取错误", f"无法读取文件:\n{str(e)}")
 
+    # ================= [核心修复] 保持刷新列表时滚动条位置不动 =================
     def refresh_list(self):
+        # 记录当前滚动条位置
+        v_scrollbar = self.list_widget.verticalScrollBar()
+        current_scroll = v_scrollbar.value()
+        
         self.list_widget.clear()
         for key in self.world_info_data.keys():
             item = QListWidgetItem()
             item.setData(Qt.UserRole, key)
             self.list_widget.addItem(item)
         self.update_list_display()
+        
+        # 恢复滚动条位置，防止列表乱跳
+        v_scrollbar.setValue(current_scroll)
 
     def update_list_display(self):
         for i in range(self.list_widget.count()):
@@ -915,39 +637,66 @@ class MainWindow(QMainWindow):
             else:
                 item.setHidden(True)
 
-    def reorder_dictionary(self, old_row, new_row):
-        keys = list(self.world_info_data.keys())
-        moved_key = keys.pop(old_row)
-        keys.insert(new_row, moved_key)
-        
-        new_dict = {k: self.world_info_data[k] for k in keys}
+    def on_items_reordered(self):
+        self.save_current_ui_to_memory()
+        new_keys = []
+        for i in range(self.list_widget.count()):
+            new_keys.append(self.list_widget.item(i).data(Qt.UserRole))
+            
+        new_dict = {k: self.world_info_data[k] for k in new_keys}
         self.world_info_data = new_dict
+        
         self.set_modified()
         self.update_list_display() 
 
-    def on_item_dragged(self, old_row, new_row):
-        self.save_current_ui_to_memory()
-        self.reorder_dictionary(old_row, new_row)
-
     def move_to_index(self):
-        current_row = self.list_widget.currentRow()
-        if current_row < 0: return
+        selected_items = self.list_widget.selectedItems()
+        if not selected_items: 
+            QMessageBox.warning(self, "提示", "请先选择要移动的条目！")
+            return
+            
+        selected_rows = sorted([self.list_widget.row(item) for item in selected_items])
+        selected_keys = [self.list_widget.item(row).data(Qt.UserRole) for row in selected_rows]
+        
         total = self.list_widget.count()
-        new_row, ok = QInputDialog.getInt(self, "移动条目", f"输入新位置 (1 到 {total}):", current_row + 1, 1, total, 1)
-        if ok and (new_row - 1) != current_row:
+        new_row, ok = QInputDialog.getInt(self, "批量移动", f"您选中了 {len(selected_items)} 个条目。\n输入它们要插入的目标位置 (1 到 {total}):", selected_rows[0] + 1, 1, total, 1)
+        
+        if ok:
             self.save_current_ui_to_memory()
             target_index = new_row - 1
-            item = self.list_widget.takeItem(current_row)
-            self.list_widget.insertItem(target_index, item)
-            self.list_widget.setCurrentRow(target_index)
-            self.reorder_dictionary(current_row, target_index)
-            self.on_item_clicked(item)
+            
+            keys = list(self.world_info_data.keys())
+            
+            for k in selected_keys:
+                keys.remove(k)
+            
+            target_index = min(target_index, len(keys))
+            for i, k in enumerate(selected_keys):
+                keys.insert(target_index + i, k)
+                
+            new_dict = {k: self.world_info_data[k] for k in keys}
+            self.world_info_data = new_dict
+            
+            self.set_modified()
+            self.refresh_list()
+            
+            # [新增体验优化] 移动后自动滚动并高亮选中的条目
+            self.list_widget.clearSelection()
+            last_item = None
+            for i in range(self.list_widget.count()):
+                item = self.list_widget.item(i)
+                if item.data(Qt.UserRole) in selected_keys:
+                    item.setSelected(True)
+                    last_item = item
+            if last_item:
+                self.list_widget.scrollToItem(last_item)
 
     def convert_chinese(self, target_lang):
-        current_row = self.list_widget.currentRow()
-        if current_row < 0:
-            QMessageBox.warning(self, "提示", "请先选择一个要转换的条目！")
+        selected_items = self.list_widget.selectedItems()
+        if not selected_items:
+            QMessageBox.warning(self, "提示", "请先选择要转换的条目！(支持按住 Ctrl/Shift 多选)")
             return
+            
         mode_str = "简体" if target_lang == 'zh-cn' else "繁体"
         dialog = ConvertDialog(mode_str, self)
         if dialog.exec() != QDialog.Accepted: return
@@ -955,47 +704,60 @@ class MainWindow(QMainWindow):
         conv_title, conv_keys, conv_content = dialog.get_selection()
         self.save_current_ui_to_memory()
         
-        item = self.list_widget.currentItem()
-        original_key = item.data(Qt.UserRole)
-        original_data = self.world_info_data[original_key]
-        new_data = json.loads(json.dumps(original_data)) 
+        selected_rows = sorted([self.list_widget.row(item) for item in selected_items])
+        selected_keys = [self.list_widget.item(row).data(Qt.UserRole) for row in selected_rows]
         
-        existing_keys = [int(k) for k in self.world_info_data.keys() if k.isdigit()]
-        new_id = str(max(existing_keys) + 1) if existing_keys else "0"
-        new_data["uid"] = int(new_id)
-        
-        suffix = " - 简" if target_lang == 'zh-cn' else " - 繁"
-
-        # =============== 增加异常捕获，防止因为打包丢失文件导致静默崩溃 ===============
-        try:
-            if conv_title:
-                new_data["comment"] = zhconv.convert(new_data.get("comment", ""), target_lang) + suffix
-            else:
-                new_data["comment"] = new_data.get("comment", "") + suffix
-                
-            if conv_keys:
-                new_data["key"] = [zhconv.convert(k, target_lang) for k in new_data.get("key", [])]
-                new_data["keysecondary"] = [zhconv.convert(k, target_lang) for k in new_data.get("keysecondary", [])]
-                
-            if conv_content:
-                new_data["content"] = zhconv.convert(new_data.get("content", ""), target_lang)
-        except Exception as e:
-            QMessageBox.critical(self, "转换失败", f"简繁转换过程中发生错误 (可能是打包时丢失了字典文件)：\n{str(e)}")
-            return
-        # ========================================================================
-
         keys_list = list(self.world_info_data.keys())
-        insert_idx = keys_list.index(original_key) + 1
-        keys_list.insert(insert_idx, new_id)
+        new_keys_added = [] # 记录新生成的条目ID
         
-        self.world_info_data[new_id] = new_data
+        for original_key in selected_keys:
+            original_data = self.world_info_data[original_key]
+            new_data = json.loads(json.dumps(original_data)) 
+            
+            existing_keys = [int(k) for k in self.world_info_data.keys() if k.isdigit()]
+            new_id = str(max(existing_keys) + 1) if existing_keys else "0"
+            new_data["uid"] = int(new_id)
+            
+            suffix = " - 简" if target_lang == 'zh-cn' else " - 繁"
+
+            try:
+                if conv_title:
+                    new_data["comment"] = zhconv.convert(new_data.get("comment", ""), target_lang) + suffix
+                else:
+                    new_data["comment"] = new_data.get("comment", "") + suffix
+                    
+                if conv_keys:
+                    new_data["key"] = [zhconv.convert(k, target_lang) for k in new_data.get("key", [])]
+                    new_data["keysecondary"] = [zhconv.convert(k, target_lang) for k in new_data.get("keysecondary", [])]
+                    
+                if conv_content:
+                    new_data["content"] = zhconv.convert(new_data.get("content", ""), target_lang)
+            except Exception as e:
+                QMessageBox.critical(self, "转换失败", f"简繁转换过程中发生错误 (可能是打包时丢失了字典文件)：\n{str(e)}")
+                return
+
+            insert_idx = keys_list.index(original_key) + 1
+            keys_list.insert(insert_idx, new_id)
+            self.world_info_data[new_id] = new_data
+            new_keys_added.append(new_id)
+            
         new_dict = {k: self.world_info_data.get(k) for k in keys_list}
         self.world_info_data = new_dict
         
         self.set_modified()
         self.refresh_list()
-        self.list_widget.setCurrentRow(insert_idx)
-        self.on_item_clicked(self.list_widget.currentItem())
+
+        # [新增体验优化] 自动选中最新生成的简繁条目，并智能跟随滚动！
+        self.list_widget.clearSelection()
+        last_item = None
+        for i in range(self.list_widget.count()):
+            item = self.list_widget.item(i)
+            if item.data(Qt.UserRole) in new_keys_added:
+                item.setSelected(True)
+                last_item = item
+                
+        if last_item:
+            self.list_widget.scrollToItem(last_item)
 
     def add_entry(self):
         existing_keys = [int(k) for k in self.world_info_data.keys() if k.isdigit()]
@@ -1022,18 +784,26 @@ class MainWindow(QMainWindow):
         self.on_item_clicked(self.list_widget.currentItem())
 
     def delete_entry(self):
-        current_row = self.list_widget.currentRow()
-        if current_row < 0: return
-        reply = QMessageBox.question(self, '确认', '确定要删除吗？', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        selected_items = self.list_widget.selectedItems()
+        if not selected_items: 
+            return
+            
+        count = len(selected_items)
+        reply = QMessageBox.question(self, '确认', f'确定要删除选中的 {count} 个条目吗？', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        
         if reply == QMessageBox.Yes:
-            item = self.list_widget.item(current_row)
-            key_to_del = item.data(Qt.UserRole)
-            del self.world_info_data[key_to_del]
-            self.current_entry_key = None
-            self.list_widget.takeItem(current_row)
-            self.clear_form()
+            keys_to_del = [item.data(Qt.UserRole) for item in selected_items]
+            
+            for key in keys_to_del:
+                if key in self.world_info_data:
+                    del self.world_info_data[key]
+                    
+            if self.current_entry_key in keys_to_del:
+                self.current_entry_key = None
+                self.clear_form()
+                
             self.set_modified()
-            self.update_list_display()
+            self.refresh_list()
 
     def clear_form(self):
         for json_key, config in self.field_map.items():
